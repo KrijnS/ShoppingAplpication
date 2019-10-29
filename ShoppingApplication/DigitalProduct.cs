@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
-    class DigitalProduct
+    class DigitalProduct : Product
     {
     }
 }
