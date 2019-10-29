@@ -54,7 +54,7 @@
     <Compile Include="DigitalProduct.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="OrderID.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

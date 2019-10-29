@@ -8,5 +8,6 @@ namespace ShoppingApplication
 {
     enum PaymentMethod
     {
-    }
+        iDeal, CreditCard, Paypal
+    };
 }

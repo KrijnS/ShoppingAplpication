@@ -8,5 +8,11 @@ namespace ShoppingApplication
 {
     class OrderID
     {
+        public int generateID()
+        {
+            Random rand = new Random();
+            int id = rand.Next(2147483647);
+            return id;
+        }
     }
 }

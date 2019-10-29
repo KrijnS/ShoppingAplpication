@@ -8,5 +8,6 @@ namespace ShoppingApplication
 {
     enum OrderType
     {
-    }
+        Inland, Abroad
+    };
 }

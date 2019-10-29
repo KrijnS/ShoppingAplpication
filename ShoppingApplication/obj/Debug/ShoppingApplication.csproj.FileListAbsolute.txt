@@ -1,0 +1,7 @@
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\bin\Debug\ShoppingApplication.exe.config
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\bin\Debug\ShoppingApplication.exe
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\bin\Debug\ShoppingApplication.pdb
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.csprojAssemblyReference.cache
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.csproj.CoreCompileInputs.cache
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.exe
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.pdb
