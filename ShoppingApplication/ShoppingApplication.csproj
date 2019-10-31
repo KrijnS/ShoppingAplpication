@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="ResponseHandler.cs" />
     <Compile Include="OrderType.cs" />
     <Compile Include="ShippingFee.cs" />
