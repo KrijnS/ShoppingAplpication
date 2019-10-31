@@ -10,7 +10,8 @@ namespace ShoppingApplication
     {
         static void Main(string[] args)
         {
-            Addresss addresss = new Addresss(null, null, null, null);
+            Address addresss = new Address(null, null, null, null, OrderType.Inland);
+            Address add = addresss.GetAddress();
             System.Threading.Thread.Sleep(5000);
         }
     }

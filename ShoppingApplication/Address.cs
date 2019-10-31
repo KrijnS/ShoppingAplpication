@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
-    class Addresss
+    class Address
     {
         string street;
         string zipCode;
         string city;
         string houseNumber;
+        public OrderType orderType;
 
-        public Addresss(string street, string zipCode, string city, string houseNumber)
+        public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType)
         {
             this.street = street;
             this.zipCode = zipCode;
             this.city = city;
             this.houseNumber = houseNumber;
+            this.orderType = orderType;
         }
 
-        public Addresss GetAddress()
+        public Address GetAddress()
         {
-            Addresss addresss = new Addresss(GetStreet(), GetZipCode(), GetCity(), GetHouseNumber());
+            Address addresss = new Address(GetStreet(), GetZipCode(), GetCity(), GetHouseNumber(), GetOrderType());
             return addresss;
         }
 
@@ -51,8 +54,32 @@ namespace ShoppingApplication
         private string GetHouseNumber()
         {
             Console.WriteLine("Please input house number and possibly addition");
+            Regex regex = new Regex(@"\d+\w*$");
             string houseNumber = Console.ReadLine();
-            return houseNumber;
+            if (!(regex.IsMatch(houseNumber)))
+            { 
+                return GetHouseNumber();
+            }
+            else
+            {
+                return houseNumber;
+            }       
+        }
+
+        private OrderType GetOrderType()
+        {
+            Console.WriteLine("Please input the variation of shipping, as \u0022Inland\u0022 or \u0022Abroad\u0022");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "Inland":
+                    return OrderType.Inland;
+                case "Abroad":
+                    return OrderType.Abroad;
+                default:
+                    return GetOrderType();
+            }
+
         }
     }
 }

@@ -28,5 +28,20 @@ namespace ShoppingApplication
             totalPrice = this.productPrice + shippingFee.CalculateFee(this.weight, orderType);
             return totalPrice;
         }
+
+        public string VerifyPayment()
+        {
+            Console.WriteLine("Payment initiated.../nWas payment succesfull? [Y|N]");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "Y":
+                    return "Payment not yet implemented";
+                case "N":
+                    return "Payment cancelled, try again";
+                default:
+                    return VerifyPayment();
+            }
+        }
     }
 }

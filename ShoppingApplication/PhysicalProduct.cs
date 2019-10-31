@@ -8,5 +8,14 @@ namespace ShoppingApplication
 {
     class PhysicalProduct : Product
     {
+        public PhysicalProduct(string name, int productPrice, int weight) : base(name, productPrice, weight)
+        {
+        }
+
+        public override string TransportMethod()
+
+        {
+            throw new NotImplementedException();
+        }
     }
 }
