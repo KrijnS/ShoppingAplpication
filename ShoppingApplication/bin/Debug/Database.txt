@@ -1,0 +1,4 @@
+Windows 10 Key,100,0,Digital,This key grants access to a Windows 10 install
+HP ZBook,400,150,Physical,This laptop meets all your basic needs
+USB 16GB,10,10,Physical,This USB device allows for easy data distribution, up to 16GB
+Office365 Key,80,0,Digital,This key grants access to all Office applications

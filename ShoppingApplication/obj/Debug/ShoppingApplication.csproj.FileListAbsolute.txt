@@ -5,3 +5,4 @@ C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\Sh
 C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.csproj.CoreCompileInputs.cache
 C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.exe
 C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\obj\Debug\ShoppingApplication.pdb
+C:\Users\Krijn\source\repos\ShoppingApplication\ShoppingApplication\bin\Debug\Database.txt

@@ -11,12 +11,14 @@ namespace ShoppingApplication
         protected string name;
         int productPrice;
         int weight;
+        public string description;
 
-        public Product(string name, int productPrice, int weight)
+        public Product(string name, int productPrice, int weight, string description)
         {
             this.name = name;
             this.productPrice = productPrice;
             this.weight = weight;
+            this.description = description;
         }
 
         public abstract string TransportMethod();
@@ -41,6 +43,21 @@ namespace ShoppingApplication
                     return "Payment cancelled, try again";
                 default:
                     return VerifyPayment();
+            }
+        }
+
+        public Product ParseProduct(string productText)
+        {
+            string[] productInfo = productText.Split(',');
+            if (productInfo[3].Equals("Digital"))
+            {
+                DigitalProduct product = new DigitalProduct(productInfo[0], Convert.ToInt32(productInfo[1]), Convert.ToInt32(productInfo[2]), productInfo[4]);
+                return product;
+            }
+            else
+            {
+                PhysicalProduct product = new PhysicalProduct(productInfo[0], Convert.ToInt32(productInfo[1]), Convert.ToInt32(productInfo[2]), productInfo[4]);
+                return product;
             }
         }
     }
