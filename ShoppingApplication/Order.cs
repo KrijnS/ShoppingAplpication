@@ -8,5 +8,15 @@ namespace ShoppingApplication
 {
     class Order
     {
+        int orderID;
+        Address address;
+        UIOrder uIOrder;
+
+        public Order(int orderID, Address address, UIOrder uIOrder)
+        {
+            this.orderID = orderID;
+            this.address = address;
+            this.uIOrder = uIOrder;
+        }
     }
 }

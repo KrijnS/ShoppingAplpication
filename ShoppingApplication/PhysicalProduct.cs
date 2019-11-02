@@ -15,7 +15,7 @@ namespace ShoppingApplication
         public override string TransportMethod()
 
         {
-            throw new NotImplementedException();
+            return this.name + " will be transported to your address!";
         }
     }
 }

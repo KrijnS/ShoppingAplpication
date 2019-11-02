@@ -8,7 +8,7 @@ namespace ShoppingApplication
 {
     abstract class Product
     {
-        string name;
+        protected string name;
         int productPrice;
         int weight;
 
