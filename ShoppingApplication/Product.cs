@@ -33,16 +33,16 @@ namespace ShoppingApplication
 
         public string VerifyPayment()
         {
-            Console.WriteLine("Payment initiated.../nWas payment succesfull? [Y|N]");
-            string input = Console.ReadLine();
-            switch (input)
+            Console.WriteLine("Payment initiated...\nWas payment succesfull? [Y|N]");
+            ResponseHandler responseHandler = new ResponseHandler();
+            if (responseHandler.ParseYesNo())
             {
-                case "Y":
-                    return "Payment not yet implemented";
-                case "N":
-                    return "Payment cancelled, try again";
-                default:
-                    return VerifyPayment();
+                return "\nPayment was succesfull!";
+            }
+            else
+            {
+                Console.WriteLine("\nPayment was not succesfull, try again");
+                return VerifyPayment();
             }
         }
 

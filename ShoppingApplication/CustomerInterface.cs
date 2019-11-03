@@ -10,6 +10,7 @@ namespace ShoppingApplication
     {
         Parser parser = new Parser();
         Product[] allProducts;
+        ResponseHandler responseHandler = new ResponseHandler();
 
         public void ShowAllProducts()
         {
@@ -24,22 +25,7 @@ namespace ShoppingApplication
                 Console.WriteLine("[" + index + "] " + allProducts[i].name);
             }
 
-            ShowProduct(ReadInput());
-        }
-
-        public int ReadInput()
-        {
-            try
-            {
-                int input = Convert.ToInt32(Console.ReadLine());
-                return input;
-            }
-            catch
-            {
-                Console.WriteLine("Please input a number");
-                return ReadInput();
-            }
-            
+            ShowProduct(responseHandler.ReadNumberInput());
         }
 
         public void ShowProduct(int input)
@@ -47,24 +33,33 @@ namespace ShoppingApplication
             if(input > allProducts.Length)
             {
                 Console.WriteLine("Please input an existing product");
-                ShowProduct(ReadInput());
+                ShowProduct(responseHandler.ReadNumberInput());
                 return;
             }
             Product product = allProducts[input-1];
             if(product is PhysicalProduct)
             {
-                Console.WriteLine(product.name + "\n" + product.productPrice + " euros " + product.weight + " grams\n" + product.description +
-               "\nHow much of this product would you like?\n\nIf you would like to view another product please press any other key than a number");
+                Console.WriteLine("\n" + product.name + "\n" + product.productPrice + " euros " + product.weight + " grams\n" + product.description +
+               "\n\nHow much of this product would you like?\n\nIf you would like to view another product please press any other key than a number");
             }
             else
             {
-                Console.WriteLine(product.name + "\n" + product.productPrice + " euros\n" + product.description +
-              "\nHow much of this product would you like?\n\nIf you would like to view another product please press any other key than a number");
+                Console.WriteLine("\n" + product.name + "\n" + product.productPrice + " euros\n" + product.description +
+              "\n\nHow much of this product would you like?\n\nIf you would like to view another product please press any other key than a number");
             }
             int amount;
             if (int.TryParse(Console.ReadLine(), out amount))
             {
                 product.AddToCart(amount);
+                Console.WriteLine("\nDo you want to finalize your order? [Y|N]");
+                if (responseHandler.ParseYesNo())
+                {
+                    product.VerifyPayment();
+                }
+                else
+                {
+                    ShowAllProducts();
+                }
             }
             else
             {
