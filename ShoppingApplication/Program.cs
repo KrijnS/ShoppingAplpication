@@ -14,23 +14,14 @@ namespace ShoppingApplication
             //Address add = addresss.GetAddress();
 
 
-            //DigitalProduct digital = new DigitalProduct("productX", 10, 10, "Goed product");
+            // digital = new DigitalProduct("productX", 10, 10, "Goed product");
             //Console.WriteLine(digital.TransportMethod());
 
-            Parser parser = new Parser();
-            Product[] allProducts = parser.GetProducts();
-            for(int i = 0; i < allProducts.Length; i++)
-            {
-                if(allProducts[i] is DigitalProduct)
-                {
-                    Console.WriteLine("Does not need shipping");
-                }
-                else
-                {
-                    Console.WriteLine("Does need shipping");
-                }
-            }
-            System.Threading.Thread.Sleep(5000);
+            CustomerInterface customerInterface = new CustomerInterface();
+            customerInterface.ShowAllProducts();
+
+            customerInterface.ShowProduct((customerInterface.ReadInput()));
+            System.Threading.Thread.Sleep(10000);
         }
     }
 }
