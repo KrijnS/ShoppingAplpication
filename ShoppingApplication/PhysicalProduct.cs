@@ -12,6 +12,7 @@ namespace ShoppingApplication
         {
         }
 
+        //Specific transport method for physical products
         public override string TransportMethod()
 
         {

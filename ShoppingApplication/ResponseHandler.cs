@@ -8,6 +8,7 @@ namespace ShoppingApplication
 {
     class ResponseHandler
     {
+        //Method to check input for a Yes No question
         public bool ParseYesNo()
         {
             string input = Console.ReadLine();
@@ -23,6 +24,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Method to check validity of a number requested input
         public int ReadNumberInput()
         {
             try

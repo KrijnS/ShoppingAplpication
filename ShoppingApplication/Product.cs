@@ -21,8 +21,10 @@ namespace ShoppingApplication
             this.description = description;
         }
 
+        //Transport method, since the two differ there is no implementation in the superclass
         public abstract string TransportMethod();
 
+        //Calculates total price of an order
         public int TotalPrice(OrderType orderType)
         {
             ShippingFee shippingFee = new ShippingFee();
@@ -31,6 +33,7 @@ namespace ShoppingApplication
             return totalPrice;
         }
 
+        //Checks to see if the payment was successfull
         public string VerifyPayment()
         {
             Console.WriteLine("Payment initiated...\nWas payment succesfull? [Y|N]");
@@ -46,6 +49,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Method to parse a product from string 
         public Product ParseProduct(string productText)
         {
             string[] productInfo = productText.Split(',');
@@ -61,6 +65,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Add requested product to cart
         public void AddToCart(int amount)
         {
             Console.WriteLine(amount + "x " + this.name + " has been added to your cart");

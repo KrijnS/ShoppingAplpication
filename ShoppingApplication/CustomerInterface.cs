@@ -12,6 +12,7 @@ namespace ShoppingApplication
         Product[] allProducts;
         ResponseHandler responseHandler = new ResponseHandler();
 
+        //Displays catalogue of all products on screen
         public void ShowAllProducts()
         {
             allProducts = parser.GetProducts();
@@ -28,6 +29,7 @@ namespace ShoppingApplication
             ShowProduct(responseHandler.ReadNumberInput());
         }
 
+        //Displays specifics about a product after selection on screen
         public void ShowProduct(int input)
         {
             if(input > allProducts.Length)

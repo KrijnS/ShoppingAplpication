@@ -11,6 +11,7 @@ namespace ShoppingApplication
     {
         Product[] allProducts;
 
+        //Method to read all products from file and return them in an array
         public Product[] GetProducts()
         {
             string[] allLines = File.ReadAllLines("Database.txt", Encoding.UTF8);

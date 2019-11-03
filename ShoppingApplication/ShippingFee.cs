@@ -8,6 +8,7 @@ namespace ShoppingApplication
 {
     class ShippingFee
     {
+        //Calculate shipping fee, based on weight and destination
         public int CalculateFee(int weight, OrderType orderType)
         {
             float fee;

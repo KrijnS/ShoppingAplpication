@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
+    //Enum for the correct payment method
     enum PaymentMethod
     {
         iDeal, CreditCard, Paypal

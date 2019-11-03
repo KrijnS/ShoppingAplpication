@@ -8,6 +8,7 @@ namespace ShoppingApplication
 {
     class OrderID
     {
+        //Generates random integer to be used as ID
         public int generateID()
         {
             Random rand = new Random();

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
@@ -15,6 +11,7 @@ namespace ShoppingApplication
         string houseNumber;
         public OrderType orderType;
 
+        //Basic constructor for Address class
         public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType)
         {
             this.street = street;
@@ -24,12 +21,14 @@ namespace ShoppingApplication
             this.orderType = orderType;
         }
 
+        //Get the needed Address from customer
         public Address GetAddress()
         {
             Address addresss = new Address(GetStreet(), GetZipCode(), GetCity(), GetHouseNumber(), GetOrderType());
             return addresss;
         }
 
+        //Get street from customer, needed for GetAddress()
         private string GetStreet()
         {
             Console.WriteLine("Please input street name");
@@ -37,6 +36,7 @@ namespace ShoppingApplication
             return street;         
         }
 
+        //Get zip code from customer, needed for GetAddress()
         private string GetZipCode()
         {
             Console.WriteLine("Please input zip code");
@@ -52,6 +52,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Get city from customer, needed for GetAddres()
         private string GetCity()
         {
             Console.WriteLine("Please input city");
@@ -59,6 +60,7 @@ namespace ShoppingApplication
             return city;
         }
 
+        //Get house number from customer, needed for GetAddress(). Regex checks the input to contain a digit and possibly a char addition
         private string GetHouseNumber()
         {
             Console.WriteLine("Please input house number and possibly addition");
@@ -74,6 +76,7 @@ namespace ShoppingApplication
             }       
         }
 
+        //Get the order type, inland or abroad, from the customer. Needed for GetAddress()
         private OrderType GetOrderType()
         {
             Console.WriteLine("Please input the variation of shipping, as \u0022Inland\u0022 or \u0022Abroad\u0022");
