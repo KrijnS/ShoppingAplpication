@@ -23,6 +23,8 @@ namespace ShoppingApplication
                 int index = i + 1;
                 Console.WriteLine("[" + index + "] " + allProducts[i].name);
             }
+
+            ShowProduct(ReadInput());
         }
 
         public int ReadInput()
@@ -59,6 +61,16 @@ namespace ShoppingApplication
                 Console.WriteLine(product.name + "\n" + product.productPrice + " euros\n" + product.description +
               "\nHow much of this product would you like?\n\nIf you would like to view another product please press any other key than a number");
             }
+            int amount;
+            if (int.TryParse(Console.ReadLine(), out amount))
+            {
+                product.AddToCart(amount);
+            }
+            else
+            {
+                ShowAllProducts();
+            }
         }
+
     }
 }

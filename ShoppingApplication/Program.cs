@@ -20,7 +20,6 @@ namespace ShoppingApplication
             CustomerInterface customerInterface = new CustomerInterface();
             customerInterface.ShowAllProducts();
 
-            customerInterface.ShowProduct((customerInterface.ReadInput()));
             System.Threading.Thread.Sleep(10000);
         }
     }
