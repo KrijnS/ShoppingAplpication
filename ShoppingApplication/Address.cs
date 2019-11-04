@@ -39,7 +39,7 @@ namespace ShoppingApplication
         //Get zip code from customer, needed for GetAddress()
         private string GetZipCode()
         {
-            Console.WriteLine("Please input zip code");
+            Console.WriteLine("Please input zip code. Use \u00221111AA\u0022");
             Regex regex = new Regex("^[1-9][0-9]{3}?[a-zA-Z]{2}$");
             string zipCode = Console.ReadLine();
             if (!(regex.IsMatch(zipCode)))
