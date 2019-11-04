@@ -12,7 +12,7 @@ namespace ShoppingApplication
         public int CalculateFee(int weight, OrderType orderType)
         {
             float fee;
-            if (orderType.Equals("Inland"))
+            if (orderType.Equals(OrderType.Inland))
             {
                 fee = 2;
             }
