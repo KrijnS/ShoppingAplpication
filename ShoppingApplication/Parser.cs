@@ -24,5 +24,17 @@ namespace ShoppingApplication
 
             return allProducts;
         }
+
+        public int GetAmountOfProducts()
+        {
+            string[] allLines = File.ReadAllLines("Database.txt", Encoding.UTF8);
+            return allLines.Length;
+        }
+
+        public Product GetProductFromIndex(int index)
+        {
+            allProducts = GetProducts();
+            return allProducts[index];
+        }
     }
 }

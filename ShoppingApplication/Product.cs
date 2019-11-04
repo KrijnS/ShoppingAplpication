@@ -65,10 +65,5 @@ namespace ShoppingApplication
             }
         }
 
-        //Add requested product to cart
-        public void AddToCart(int amount)
-        {
-            Console.WriteLine(amount + "x " + this.name + " has been added to your cart");
-        }
     }
 }

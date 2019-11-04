@@ -11,10 +11,11 @@ namespace ShoppingApplication
         static void Main(string[] args)
         {
 
-            Dictionary<Product, int> amountOfProduct = new Dictionary<Product, int>();
-            ShoppingCart shoppingCart = new ShoppingCart(amountOfProduct);
+            //Dictionary<Product, int> amountOfProduct = new Dictionary<Product, int>();
+            //ShoppingCart shoppingCart = new ShoppingCart(amountOfProduct);
            
             CustomerInterface customerInterface = new CustomerInterface();
+            customerInterface.InitShoppingCart();
             customerInterface.ShowAllProducts();
 
             System.Threading.Thread.Sleep(10000);

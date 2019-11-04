@@ -11,6 +11,12 @@ namespace ShoppingApplication
         Parser parser = new Parser();
         Product[] allProducts;
         ResponseHandler responseHandler = new ResponseHandler();
+        ShoppingCart shoppingCart= new ShoppingCart(null);
+            
+        public void InitShoppingCart()
+        {
+            shoppingCart = shoppingCart.GetShoppingCart();
+        }
 
         //Displays catalogue of all products on screen
         public void ShowAllProducts()
@@ -52,7 +58,8 @@ namespace ShoppingApplication
             int amount;
             if (int.TryParse(Console.ReadLine(), out amount))
             {
-                product.AddToCart(amount);
+                shoppingCart.AddToCart(input-1,amount);
+                shoppingCart.DisplayCart();
                 Console.WriteLine("\nDo you want to finalize your order? [Y|N]");
                 if (responseHandler.ParseYesNo())
                 {

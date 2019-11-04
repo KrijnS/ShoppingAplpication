@@ -8,30 +8,34 @@ namespace ShoppingApplication
 {
     class ShoppingCart
     {
-        Dictionary<Product, int> amountOfProduct;
+        Parser parser = new Parser();
+        int[] amountOfProduct;
 
-        public ShoppingCart(Dictionary<Product, int> amountOfProduct)
+        public ShoppingCart(int[] amountOfProduct)
         {
             this.amountOfProduct = amountOfProduct;
         }
 
-        public void AddToCart(Product product, int amount)
+        public ShoppingCart GetShoppingCart()
         {
-            if (!(this.amountOfProduct.Count == 0) && this.amountOfProduct.TryGetValue(product, out int amountStored))
-            {
-                this.amountOfProduct[product] = amount + amountStored;
-            }
-            else
-            {
-                this.amountOfProduct.Add(product, amount);
-            }          
+            this.amountOfProduct = new int[parser.GetAmountOfProducts()];
+            ShoppingCart shoppingCart = new ShoppingCart(this.amountOfProduct);
+            return shoppingCart;
+        }
+
+        public void AddToCart(int index, int amount)
+        {
+            this.amountOfProduct[index] += amount;
         }
 
         public void DisplayCart()
         {
-            foreach(KeyValuePair<Product,int> cartProduct in amountOfProduct)
+            for(int i = 0; i < this.amountOfProduct.Length; i++)
             {
-                Console.WriteLine(cartProduct.Value + "x " + cartProduct.Key.name);
+                if(this.amountOfProduct[i] > 0)
+                {
+                    Console.WriteLine(this.amountOfProduct[i] + "x " + parser.GetProductFromIndex(i).name);
+                }
             }
         }
     }
