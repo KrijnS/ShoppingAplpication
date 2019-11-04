@@ -10,13 +10,13 @@ namespace ShoppingApplication
     {
         int orderID;
         Address address;
-        UIOrder uIOrder;
+        PaymentMethod paymentMethod;
 
-        public Order(int orderID, Address address, UIOrder uIOrder)
+        public Order(int orderID, Address address, PaymentMethod paymentMethod)
         {
             this.orderID = orderID;
             this.address = address;
-            this.uIOrder = uIOrder;
+            this.paymentMethod = paymentMethod;
         }
     }
 }

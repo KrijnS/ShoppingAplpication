@@ -9,7 +9,7 @@ namespace ShoppingApplication
     class ShoppingCart
     {
         Parser parser = new Parser();
-        int[] amountOfProduct;
+        public int[] amountOfProduct;
 
         public ShoppingCart(int[] amountOfProduct)
         {
@@ -37,6 +37,34 @@ namespace ShoppingApplication
                     Console.WriteLine(this.amountOfProduct[i] + "x " + parser.GetProductFromIndex(i).name);
                 }
             }
+        }
+
+        public bool CheckForShipping()
+        {
+            for(int i = 0; i < this.amountOfProduct.Length; i++)
+            {
+                if(this.amountOfProduct[i] > 0)
+                {
+                    if(parser.GetProductFromIndex(i).GetType() == typeof(PhysicalProduct))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public int PriceOfCart(OrderType orderType)
+        {
+            int totalPrice = 0;
+            for (int i = 0; i < this.amountOfProduct.Length; i++)
+            {
+                if (this.amountOfProduct[i] > 0)
+                {
+                    totalPrice += this.amountOfProduct[i] * parser.GetProductFromIndex(i).TotalPrice(orderType);
+                }
+            }
+            return totalPrice;
         }
     }
 }

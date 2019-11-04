@@ -33,22 +33,6 @@ namespace ShoppingApplication
             return totalPrice;
         }
 
-        //Checks to see if the payment was successfull
-        public string VerifyPayment()
-        {
-            Console.WriteLine("Payment initiated...\nWas payment succesfull? [Y|N]");
-            ResponseHandler responseHandler = new ResponseHandler();
-            if (responseHandler.ParseYesNo())
-            {
-                return "\nPayment was succesfull!";
-            }
-            else
-            {
-                Console.WriteLine("\nPayment was not succesfull, try again");
-                return VerifyPayment();
-            }
-        }
-
         //Method to parse a product from string 
         public Product ParseProduct(string productText)
         {

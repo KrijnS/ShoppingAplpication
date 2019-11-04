@@ -26,7 +26,7 @@ namespace ShoppingApplication
 
         //Method to check validity of a number requested input
         public int ReadNumberInput()
-        {             
+        {       
             try
             {
                 int input = Convert.ToInt32(Console.ReadLine());
