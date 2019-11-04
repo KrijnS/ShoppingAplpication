@@ -10,8 +10,8 @@ namespace ShoppingApplication
     {
         static void Main(string[] args)
         {
-            //Address addresss = new Address(null, null, null, null, OrderType.Inland);
-            //Address add = addresss.GetAddress();
+            Address addresss = new Address(null, null, null, null, OrderType.Inland);
+            Address add = addresss.GetAddress();
 
 
             // digital = new DigitalProduct("productX", 10, 10, "Goed product");

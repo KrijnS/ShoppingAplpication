@@ -40,7 +40,7 @@ namespace ShoppingApplication
         private string GetZipCode()
         {
             Console.WriteLine("Please input zip code");
-            Regex regex = new Regex("/^[1-9][0-9]{3}?(?!sa|sd|ss)[a-z]{2}$/ i");
+            Regex regex = new Regex("^[1-9][0-9]{3}?[a-zA-Z]{2}$");
             string zipCode = Console.ReadLine();
             if (!(regex.IsMatch(zipCode)))
             {
