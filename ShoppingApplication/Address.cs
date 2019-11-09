@@ -33,6 +33,10 @@ namespace ShoppingApplication
         {
             Console.WriteLine("Please input street name");
             string street = Console.ReadLine();
+            if (String.IsNullOrEmpty(street))
+            {
+                return GetStreet();
+            }
             return street;         
         }
 
@@ -57,6 +61,10 @@ namespace ShoppingApplication
         {
             Console.WriteLine("Please input city");
             string city = Console.ReadLine();
+            if (String.IsNullOrEmpty(city))
+            {
+                return GetCity();
+            }
             return city;
         }
 
