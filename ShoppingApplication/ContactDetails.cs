@@ -48,5 +48,10 @@ namespace ShoppingApplication
                 return GetEmail();
             }
         }
+
+        public ContactDetails GetContactDetails()
+        {
+            return new ContactDetails(GetName(), GetEmail());
+        }
     }
 }
