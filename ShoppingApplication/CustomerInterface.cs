@@ -87,7 +87,7 @@ namespace ShoppingApplication
             {
                 for(int i = 0; i < shoppingCart.amountOfProduct.Length; i++)
                 {
-                    if(shoppingCart.amountOfProduct[i] != 0)
+                    if(shoppingCart.amountOfProduct[i] > 0)
                     {
                         Product tempProduct = parser.GetProductFromIndex(i);
                         if (tempProduct.GetType() == typeof(DigitalProduct))

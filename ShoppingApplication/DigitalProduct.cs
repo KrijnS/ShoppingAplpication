@@ -15,18 +15,19 @@ namespace ShoppingApplication
         //Specific transport method for digital products
         public override string TransportMethod()
         {
-            return "Your product is ready for download: " + this.name + ".nl/download \nUse product key: " + GenerateKey();
+            return "Your product is ready for download: productkey.nl/download \nUse product key: " + GenerateKey();
         }
 
         //Generates random key of 16 chars/digits, the random number is done in Ascii to make it possible to have a digit or char come out
         public string GenerateKey()
         {
-            Random rand = new Random();
+
+            Random rand = new Random(DateTime.Now.Millisecond);
             char[] productKey = new char[16];
-            for(int i = 0; i < 16; i++)
+            for (int i = 0; i < 16; i++)
             {
                 int randomAscii = rand.Next(48, 83);
-                if(randomAscii > 57)
+                if (randomAscii > 57)
                 {
                     randomAscii += 8;
                 }
@@ -37,7 +38,8 @@ namespace ShoppingApplication
             string key = tempKey.Insert(4, "-");
             tempKey = key.Insert(9, "-");
             key = tempKey.Insert(14, "-");
-            return key;
+            return key; 
+            
         }
     }
 }
