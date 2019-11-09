@@ -9,16 +9,18 @@ namespace ShoppingApplication
         string zipCode;
         string city;
         string houseNumber;
-        public OrderType orderType;
+        OrderType orderType;
+        ContactDetails contactDetails;
 
         //Basic constructor for Address class
-        public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType)
+        public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType, ContactDetails contactDetails)
         {
             this.street = street;
             this.zipCode = zipCode;
             this.city = city;
             this.houseNumber = houseNumber;
             this.orderType = orderType;
+            this.contactDetails = contactDetails;
         }
 
         //Get the needed Address from customer
@@ -99,6 +101,11 @@ namespace ShoppingApplication
                     return GetOrderType();
             }
 
+        }
+
+        private string GetName()
+        {
+            Console.WriteLine
         }
     }
 }
