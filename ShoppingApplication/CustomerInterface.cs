@@ -13,7 +13,8 @@ namespace ShoppingApplication
         ResponseHandler responseHandler = new ResponseHandler();
         ShoppingCart shoppingCart= new ShoppingCart(null);
         Order order = new Order(0, new Address("", "", "", "", OrderType.Inland), new ContactDetails("",null), PaymentMethod.CreditCard);
-            
+          
+        //Initialize shopping cart
         public void InitShoppingCart()
         {
             shoppingCart = shoppingCart.GetShoppingCart();

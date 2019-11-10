@@ -13,6 +13,7 @@ namespace ShoppingApplication
         ContactDetails contactDetails;
         PaymentMethod paymentMethod;
 
+        //Basic constructor for Order class
         public Order(int orderID, Address address, ContactDetails contactDetails, PaymentMethod paymentMethod)
         {
             this.orderID = orderID;
@@ -21,6 +22,7 @@ namespace ShoppingApplication
             this.paymentMethod = paymentMethod;
         }
 
+        //Finalize order by getting contact details
         public void CompleteOrder(ShoppingCart shoppingCart)
         {
             Address address = new Address("", "", "", "", OrderType.Inland);
@@ -76,6 +78,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Get type of PaymentMethod
         public PaymentMethod GetPaymentMethod()
         {
             Console.WriteLine("Please input the variation of payment, as \u0022iDeal\u0022, \u0022CreditCard\u0022 or \u0022PayPal\u0022");
@@ -93,6 +96,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Writes order info to Console, can easily be redesigned to email
         public void WriteOrderToFile(Order order)
         {
             Console.WriteLine("Order " + order.orderID + " completed by " + order.contactDetails.name + ", sent to " + order.contactDetails.email

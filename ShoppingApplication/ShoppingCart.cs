@@ -16,6 +16,7 @@ namespace ShoppingApplication
             this.amountOfProduct = amountOfProduct;
         }
 
+        //Return Shopping cart
         public ShoppingCart GetShoppingCart()
         {
             this.amountOfProduct = new int[parser.GetAmountOfProducts()];
@@ -23,6 +24,7 @@ namespace ShoppingApplication
             return shoppingCart;
         }
 
+        //Add product to cart from index
         public void AddToCart(int index, int amount)
         {
             if(amountOfProduct[index] + amount < 0)
@@ -35,6 +37,7 @@ namespace ShoppingApplication
             }          
         }
 
+        //Show content of cart to console
         public void DisplayCart()
         {
             for(int i = 0; i < this.amountOfProduct.Length; i++)
@@ -46,6 +49,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Check if shipping is needed, unnecessary due to different calculation in Shipping fee
         public bool CheckForShipping()
         {
             for(int i = 0; i < this.amountOfProduct.Length; i++)
@@ -61,6 +65,7 @@ namespace ShoppingApplication
             return false;
         }
 
+        //Returns price of cart
         public int PriceOfCart(OrderType orderType)
         {
             int totalPrice = 0;

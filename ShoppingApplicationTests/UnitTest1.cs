@@ -9,6 +9,7 @@ namespace ShoppingApplicationTests
     [TestClass]
     public class UnitTest1
     {
+        //Check if digital product only will have shipping fee
         [TestMethod]
         public void NoShippingForDigital()
         {
@@ -25,6 +26,7 @@ namespace ShoppingApplicationTests
             Assert.IsTrue(expectedPrice == shoppingCart.PriceOfCart(OrderType.Inland));
         }
 
+        //Check if physical product will have shipping fee
         [TestMethod]
         public void ShippingForPhysical()
         {
@@ -41,6 +43,7 @@ namespace ShoppingApplicationTests
             Assert.IsTrue(noShippingPrice < shoppingCart.PriceOfCart(OrderType.Inland));
         }
 
+        //Check if shopping cart has a zero quantity in the order
         [TestMethod]
         public void NoZeroQuantity()
         {
@@ -62,6 +65,7 @@ namespace ShoppingApplicationTests
             Assert.IsFalse(numberCheck);
         }
 
+        //Check if shipping abroad is more expensive then inland
         [TestMethod]
         public void InlandCheaperThenAbroad()
         {
@@ -70,6 +74,16 @@ namespace ShoppingApplicationTests
             ShoppingCart shoppingCart = new ShoppingCart(allProducts);
             shoppingCart.AddToCart(1, 8);
             Assert.IsTrue(shoppingCart.PriceOfCart(OrderType.Inland) < shoppingCart.PriceOfCart(OrderType.Abroad));
+        }
+
+        //Check if physical and digital products use their different methods
+        [TestMethod]
+        public void CheckDifferentMethodProducts()
+        {
+            PhysicalProduct physicalProduct = new PhysicalProduct("Product", 100, 100, "New Product");
+            DigitalProduct digitalProduct = new DigitalProduct("Product", 100, 100, "New Product");
+            Assert.IsFalse(physicalProduct.TransportMethod().Equals(digitalProduct.TransportMethod()));
+
         }
 
     }

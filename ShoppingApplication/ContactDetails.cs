@@ -13,12 +13,14 @@ namespace ShoppingApplication
         public string name;
         public MailAddress email;
 
+        //Basic contructor for ContactDetails
         public ContactDetails(string name, MailAddress email)
         {
             this.name = name;
             this.email = email;
         }
 
+        //Get name method, needed for GetContactDetails
         public string GetName()
         {
             Console.WriteLine("Please input your name");
@@ -34,6 +36,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Get Mail address method, needed for GetContactDetails
         public MailAddress GetEmail()
         {
             Console.WriteLine("Please input your email");
@@ -49,6 +52,7 @@ namespace ShoppingApplication
             }
         }
 
+        //Get contact details method
         public ContactDetails GetContactDetails()
         {
             return new ContactDetails(GetName(), GetEmail());
