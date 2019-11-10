@@ -29,6 +29,7 @@ namespace ShoppingApplication
             Person person = new Person(null, null);
             person = person.GetPerson();
             Parser parser = new Parser();
+            paymentMethod = GetPaymentMethod();
 
             Console.WriteLine("\nYour address has been recorded, now to the payment\nYour total is: "
                 + shoppingCart.PriceOfCart(address.orderType) + " euros");
@@ -62,7 +63,7 @@ namespace ShoppingApplication
         {
             Parser parser = new Parser();
             OrderID orderID = new OrderID();
-            Order order = new Order(orderID.GenerateID(), address, contactDetails, paymentMethod);
+            Order order = new Order(orderID.GenerateID(), person.address, person.contactDetails, paymentMethod);
             WriteOrderToFile(order);
             for (int i = 0; i < shoppingCart.amountOfProduct.Length; i++)
             {

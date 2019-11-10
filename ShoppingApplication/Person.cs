@@ -8,8 +8,8 @@ namespace ShoppingApplication
 {
     class Person
     {
-        ContactDetails contactDetails;
-        Address address;
+        public ContactDetails contactDetails;
+        public Address address;
 
         public Person(ContactDetails contactDetails, Address address)
         {
