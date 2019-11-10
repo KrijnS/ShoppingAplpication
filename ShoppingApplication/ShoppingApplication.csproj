@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Person.cs" />
     <Compile Include="ContactDetails.cs" />
     <Compile Include="CustomerInterface.cs" />
     <Compile Include="Parser.cs" />
@@ -51,7 +52,6 @@
     <Compile Include="OrderType.cs" />
     <Compile Include="ShippingFee.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="UIOrder.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="PhysicalProduct.cs" />

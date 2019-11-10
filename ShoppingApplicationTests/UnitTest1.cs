@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Net.Mail;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using ShoppingApplication;
 
 namespace ShoppingApplicationTests
@@ -85,6 +87,28 @@ namespace ShoppingApplicationTests
             Assert.IsFalse(physicalProduct.TransportMethod().Equals(digitalProduct.TransportMethod()));
 
         }
+
+        [TestMethod]
+        public void CheckOrderFulfilled()
+        {
+            Address address = new Address("", "", "", "", OrderType.Inland);
+            ContactDetails contactDetails = new ContactDetails("", new MailAddress("test@test.nl"));
+            Order order = new Order(1,address,contactDetails,PaymentMethod.CreditCard);
+            int[] allProducts = new int[4];
+            order.ProcessOrder(new ShoppingCart(allProducts), new Person(contactDetails,address));
+
+            Assert.IsTrue(order.orderCreated);
+        }
+
+        [TestMethod]
+        public void CheckOrderNotFulfilled()
+        {
+            Address address = new Address("", "", "", "", OrderType.Inland);
+            ContactDetails contactDetails = new ContactDetails("", new MailAddress("test@test.nl"));
+            Order order = new Order(1, address, contactDetails, PaymentMethod.CreditCard);
+            Assert.IsFalse(order.orderCreated);
+        }
+
 
     }
 }
