@@ -65,10 +65,13 @@ namespace ShoppingApplication
             OrderID orderID = new OrderID();
             Order order = new Order(orderID.GenerateID(), person.address, person.contactDetails, paymentMethod);
             WriteOrderToFile(order);
+            StringBuilder writeToBusiness = new StringBuilder("Please transport following products to: " + person.contactDetails.name 
+                + " at " + person.address.street + " " + person.address.houseNumber + " in " + person.address.city);
             for (int i = 0; i < shoppingCart.amountOfProduct.Length; i++)
             {
                 if (shoppingCart.amountOfProduct[i] > 0)
                 {
+                    writeToBusiness.Append("\n" + shoppingCart.amountOfProduct[i] + "x " + parser.GetProductFromIndex(i).name);
                     Product tempProduct = parser.GetProductFromIndex(i);
                     if (tempProduct.GetType() == typeof(DigitalProduct))
                     {
@@ -83,6 +86,8 @@ namespace ShoppingApplication
                     }
                 }
             }
+            //This code will write the message to the business on Console
+            //WriteToBusiness(writeToBusiness);
         }
 
         //Get type of PaymentMethod
@@ -109,6 +114,13 @@ namespace ShoppingApplication
             orderCreated = true;
             Console.WriteLine("Order " + order.orderID + " completed by " + order.contactDetails.name + ", sent to " + order.contactDetails.email
                 + "\nAt " + order.address.street + " " + order.address.houseNumber + " in " + order.address.city);
+  
+        }
+
+        //Code to notify business of order
+        public void WriteToBusiness(StringBuilder stringBuilder)
+        {
+            Console.WriteLine(stringBuilder);
         }
     }
 }
