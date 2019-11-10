@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ShoppingApplication
 {
     //Enum to check if order is inland or abroad
-    enum OrderType
+    public enum OrderType
     {
         Inland, Abroad
     };

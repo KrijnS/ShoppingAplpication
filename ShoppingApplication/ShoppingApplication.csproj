@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactDetails.cs" />
     <Compile Include="CustomerInterface.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="ShoppingCart.cs" />

@@ -5,22 +5,20 @@ namespace ShoppingApplication
 {
     class Address
     {
-        string street;
+        public string street;
         string zipCode;
-        string city;
-        string houseNumber;
-        OrderType orderType;
-        ContactDetails contactDetails;
+        public string city;
+        public string houseNumber;
+        public OrderType orderType;
 
         //Basic constructor for Address class
-        public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType, ContactDetails contactDetails)
+        public Address(string street, string zipCode, string city, string houseNumber, OrderType orderType)
         {
             this.street = street;
             this.zipCode = zipCode;
             this.city = city;
             this.houseNumber = houseNumber;
             this.orderType = orderType;
-            this.contactDetails = contactDetails;
         }
 
         //Get the needed Address from customer
@@ -103,9 +101,5 @@ namespace ShoppingApplication
 
         }
 
-        private string GetName()
-        {
-            Console.WriteLine
-        }
     }
 }

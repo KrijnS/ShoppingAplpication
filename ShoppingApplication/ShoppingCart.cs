@@ -25,7 +25,14 @@ namespace ShoppingApplication
 
         public void AddToCart(int index, int amount)
         {
-            this.amountOfProduct[index] += amount;
+            if(amountOfProduct[index] + amount < 0)
+            {
+                amountOfProduct[index] = 0;
+            }
+            else
+            {
+                this.amountOfProduct[index] += amount;
+            }          
         }
 
         public void DisplayCart()

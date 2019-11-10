@@ -9,7 +9,7 @@ namespace ShoppingApplication
     class OrderID
     {
         //Generates random integer to be used as ID
-        public int generateID()
+        public int GenerateID()
         {
             Random rand = new Random();
             int id = rand.Next(2147483647);

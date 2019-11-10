@@ -10,8 +10,8 @@ namespace ShoppingApplication
 {
     class ContactDetails
     {
-        string name;
-        MailAddress email;
+        public string name;
+        public MailAddress email;
 
         public ContactDetails(string name, MailAddress email)
         {
@@ -23,7 +23,7 @@ namespace ShoppingApplication
         {
             Console.WriteLine("Please input your name");
             string name = Console.ReadLine();
-            Regex regex = new Regex("^[A-Z][a-z]*(s[A-Z][a-z]*)+$");
+            Regex regex = new Regex("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
             if (!(regex.IsMatch(name)))
             {
                 return GetName();

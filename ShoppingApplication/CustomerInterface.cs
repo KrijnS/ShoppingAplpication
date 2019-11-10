@@ -12,6 +12,7 @@ namespace ShoppingApplication
         Product[] allProducts;
         ResponseHandler responseHandler = new ResponseHandler();
         ShoppingCart shoppingCart= new ShoppingCart(null);
+        Order order = new Order(0, new Address("", "", "", "", OrderType.Inland), new ContactDetails("",null), PaymentMethod.CreditCard);
             
         public void InitShoppingCart()
         {
@@ -63,7 +64,7 @@ namespace ShoppingApplication
                 Console.WriteLine("\nDo you want to finalize your order? [Y|N]");
                 if (responseHandler.ParseYesNo())
                 {
-                    CompleteOrder();
+                    order.CompleteOrder(shoppingCart);
                 }
                 else
                 {
@@ -76,50 +77,5 @@ namespace ShoppingApplication
             }
         }
 
-        public void CompleteOrder()
-        {
-            Address address = new Address("", "", "", "", OrderType.Inland);
-            address = address.GetAddress();
-
-            Console.WriteLine("\nYour address has been recorded, now to the payment\nYour total is: " 
-                + shoppingCart.PriceOfCart(address.orderType) + " euros");
-            if (VerifyPayment())
-            {
-                for(int i = 0; i < shoppingCart.amountOfProduct.Length; i++)
-                {
-                    if(shoppingCart.amountOfProduct[i] > 0)
-                    {
-                        Product tempProduct = parser.GetProductFromIndex(i);
-                        if (tempProduct.GetType() == typeof(DigitalProduct))
-                        {
-                            for(int j = 0; j < shoppingCart.amountOfProduct[i]; j++)
-                            {
-                                Console.WriteLine(tempProduct.TransportMethod());
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine(shoppingCart.amountOfProduct[i] + "x " + tempProduct.TransportMethod());
-                        }                     
-                    }   
-                }
-            }
-        }
-
-        //Checks to see if the payment was successfull
-        public bool VerifyPayment()
-        {
-            Console.WriteLine("Payment initiated...\nWas payment succesfull? [Y|N]");
-            ResponseHandler responseHandler = new ResponseHandler();
-            if (responseHandler.ParseYesNo())
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("\nPayment was not succesfull, try again");
-                return VerifyPayment();
-            }
-        }
     }
 }
