@@ -49,7 +49,17 @@ namespace ShoppingApplicationTests
             ShoppingCart shoppingCart = new ShoppingCart(allProducts);
             shoppingCart.AddToCart(1, 8);
             shoppingCart.AddToCart(1, -8);
-            
+            shoppingCart.AddToCart(2, 5);
+            shoppingCart.AddToCart(2, -6);
+            bool numberCheck = false;
+            foreach(int x in shoppingCart.amountOfProduct)
+            {
+                if(x > 0)
+                {
+                    numberCheck = true;
+                }
+            }
+            Assert.IsFalse(numberCheck);
         }
 
         [TestMethod]
